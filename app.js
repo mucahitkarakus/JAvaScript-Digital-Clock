@@ -8,6 +8,9 @@ setInterval(() => {
     let mm = document.getElementById("mm")
     let ss = document.getElementById("ss")
 
+    let hr_dost = document.queryCommandIndeterm(".hr_dot")
+    let min_dost = document.queryCommandIndeterm(".min_dot")
+    let sec_dost = document.queryCommandIndeterm(".sec_dot")
 
 
     let h = new Date().getHours();
@@ -25,9 +28,9 @@ setInterval(() => {
     m = (m > 10) ? "0" + m : m
     s = (s > 10) ? "0" + s : s
 
-    hour.innterHTML = h;
-    minute.innterHTML = m;
-    second.innterHTML = s;
+    hour.innterHTML = h + "<br><span>Hours</span>";
+    minute.innterHTML = m + "<br><span>Minutes</span>";
+    second.innterHTML = s + "<br><span>Seconds</span>";
     amp.innterHTML = am;
 
 
@@ -40,4 +43,8 @@ setInterval(() => {
     
     ss.style.strokeDashoffset = 440 - (440 * s) / 60
     //? 60 seconds
+
+    hr_dost.style.transform = `rotate(#{h * 30}deg)` 
+    min_dost.style.transform = `rotate(#{m * 6}deg)` 
+    sec_dost.style.transform = `rotate(#{s * 6}deg)` 
 })
