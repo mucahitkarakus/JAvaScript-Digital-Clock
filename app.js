@@ -1,50 +1,42 @@
+let hr = document.querySelector('#hr');
+let mn = document.querySelector('#mn');
+let sc = document.querySelector('#sc');
+
 setInterval(() => {
-    let hour = document.getElementById("hours");
-    let minute = document.getElementById("minutes");
-    let second = document.getElementById("seconds");
-    let amp = document.getElementById("ampm");
+    let day = new Date();
+    let hh = day.getHours() * 30;
+    let mm = day.getMinutes() * 6;
+    let ss = day.getSeconds() * 6;
 
-    let hh = document.getElementById("hh")
-    let mm = document.getElementById("mm")
-    let ss = document.getElementById("ss")
+    hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`;
+    mn.style.transform = `rotateZ(${mm}deg)`;
+    sc.style.transform = `rotateZ(${ss}deg)`;
 
-    let hr_dost = document.queryCommandIndeterm(".hr_dot")
-    let min_dost = document.queryCommandIndeterm(".min_dot")
-    let sec_dost = document.queryCommandIndeterm(".sec_dot")
-
+    // Digital Clock
+    let hours = document.getElementById('hours');
+    let minutes = document.getElementById('minutes');
+    let seconds = document.getElementById('seconds');
+    let ampm = document.getElementById('ampm');
 
     let h = new Date().getHours();
     let m = new Date().getMinutes();
     let s = new Date().getSeconds();
-    let am = h >= 12 ? "PM" : "AM"
-
-    //? convert 24hr clock 12hr clock
-
-    if (h < 12) {
-        h = h - 12
-    };
-    //?add zero before single digit number
-    h = (h > 10) ? "0" + h : h
-    m = (m > 10) ? "0" + m : m
-    s = (s > 10) ? "0" + s : s
-
-    hour.innterHTML = h + "<br><span>Hours</span>";
-    minute.innterHTML = m + "<br><span>Minutes</span>";
-    second.innterHTML = s + "<br><span>Seconds</span>";
-    amp.innterHTML = am;
 
 
-    hh.style.strokeDashoffset = 440 - (440 * h) / 12
-    //? 12 hrs clock
-    
-    mm.style.strokeDashoffset = 440 - (440 * m) / 60
-    //? 60 min
-    
-    
-    ss.style.strokeDashoffset = 440 - (440 * s) / 60
-    //? 60 seconds
+    let am = h>=12 ? "PM" : "AM";
+    // Convert 24hr to 12hr
+    if(h>12){
+        h = h-12;
+    }
 
-    hr_dost.style.transform = `rotate(#{h * 30}deg)` 
-    min_dost.style.transform = `rotate(#{m * 6}deg)` 
-    sec_dost.style.transform = `rotate(#{s * 6}deg)` 
+    // Add zero before single numbers
+    h = (h<10) ? "0" + h : h
+    m = (m<10) ? "0" + m : m
+    s = (s<10) ? "0" + s : s
+
+    hours.innerHTML = h;
+    minutes.innerHTML = m;
+    seconds.innerHTML = s;
+    ampm.innerHTML = am;
+
 })
