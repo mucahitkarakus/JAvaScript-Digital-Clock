@@ -5,7 +5,7 @@ Project aims to create JavaScript-Digital-Clock within html , css and JavaScript
 
   Project Name       |Libraries and Technologies I use     |How does my project look   
 :-------------------------|-------------------------|-------------------------
-[JavaScript-Digital-Clock](https://mucahitkarakus.github.io/JAvaScript-Digital-Clock/)| Html Css Sass |
+[JavaScript-Digital-Clock](https://mucahitkarakus.github.io/JAvaScript-Digital-Clock/)| Html Css JavaScript |
 
 
 ## Problem Statement
